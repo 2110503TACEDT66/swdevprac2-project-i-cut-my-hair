@@ -1,3 +1,4 @@
 node_modules
-src/libs/*
+src/libs/
+package-lock.json
 .next
