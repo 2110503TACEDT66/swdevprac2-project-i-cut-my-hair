@@ -48,9 +48,9 @@ export default async function Home() {
   if (!session || !session.user.token) return null
   const reserved = await getReservations(session.user.token);
   const handleDelete:MouseEventHandler<HTMLButtonElement> = async(e) => {
-    const id = e.currentTarget.id
-    console.log(id)
-    await deleteReservation(session.user.token, id)
+    const id = e.currentTarget.id;
+    console.log(id);
+    await deleteReservation(session.user.token, id);
   }
 
   return (
