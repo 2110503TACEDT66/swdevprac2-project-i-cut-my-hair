@@ -1,5 +1,5 @@
 export default async function postReservation(rid:string, date:string, token:string){
-    const response = await fetch(`http://localhost:400/api/v1/restaurants/${rid}/reservations`, {
+    const response = await fetch(`http://localhost:4000/api/v1/restaurants/${rid}/reservations`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

@@ -18,6 +18,7 @@ import utcPlugin from 'dayjs/plugin/utc';
 import { useSession } from "next-auth/react";
 import Card from "@/components/Card";
 import Image from "next/image";
+import postPayment from "@/libs/postPayment";
 
 export default function booking() {
     const urlParams = useSearchParams()
@@ -49,9 +50,8 @@ export default function booking() {
 
 
     const [bookDate, setBookDate] = useState<Date | null>(null)
-    const [fName, setfName] = useState<string>('')
-    const [lname, setlName] = useState<string>('')
-    const [cid, setCid] = useState<string>('')
+    const [numberValue, setnumberValue] = useState<number>(0)
+    const [payM, setPayM] = useState<string>('')
     const makeBooking = async () => {
         console.log(rid)
         console.log(dayjs(bookDate).format("YYYY-MM-DD"))
@@ -59,6 +59,8 @@ export default function booking() {
         console.log(dayjs(bookDate).format("YYYY-MM-DD") + "T" + dayjs(bookDate).format("HH:mm:ss")) //    "resvDate": "2024-12-24T22:50:00.000Z"
         if (rid && session) {
             const response = await postReservation(rid, dayjs(bookDate).format("YYYY-MM-DD") + "T" + dayjs(bookDate).format("HH:mm:ss"), session.user.token)
+            const reser = response.data._id
+            const pay = await postPayment(session.user.token,numberValue,payM,reser)
         }
     }
 
@@ -78,6 +80,23 @@ export default function booking() {
                         <p className="text-2xl mb-6">Date</p>
                         <p className="text-4xl mb-4 inline-block border border-stone-800 p-2">
                             <DateReserve onDateTimeChange={(value:Date)=>{setBookDate(value)}}/>
+                        </p>
+                        <div className="text-2xl mb-6">
+                            Payments 
+                        </div>
+                        <p className="text-4xl mb-6">Amount</p>
+                        <p className="text-2xl mb-4 inline-block border border-stone-800 p-2">
+                            <input type="number" className="MuiInput-input" value={numberValue} onChange={(e)=>{setnumberValue(e.target.valueAsNumber)}}/>
+                        </p>
+                        <p className="text-4xl mb-6">Payment Method</p>
+                        <p className="text-2xl mb-4 inline-block border border-stone-800 p-2">
+                        <Select variant="standard" name="hospital" id="hospital" className="h-[2em] w-[200px]" value={payM}
+                            onChange={(e)=> {setPayM(e.target.value)}}>
+                            <MenuItem value="credit">Credit Card</MenuItem>
+                            <MenuItem value="debit">Debit Card</MenuItem>
+                            <MenuItem value="banking">Online Banking</MenuItem>
+                            <MenuItem value="cash">Cash</MenuItem>
+                         </Select>
                         </p>
                     </div>
                 </div>
