@@ -101,9 +101,6 @@ export default function booking() {
                         </p>
                     </div>
                 </div>
-                <div className="w-[50%]">
-                    <img src="/image_1.png" alt="" className="w-full p-4" />
-                </div>
 
             </div>
             <div className="flex flex-row">
@@ -114,7 +111,7 @@ export default function booking() {
                 </Link>
 
                 { session? 
-                <Link href="/myTable">
+                <Link href="/">
                 <button className="text-base w-[80%] mb-4 mr-4 inline-block border border-stone-800 p-2 text-center relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1" onClick={makeBooking}>Reserve Now!</button>

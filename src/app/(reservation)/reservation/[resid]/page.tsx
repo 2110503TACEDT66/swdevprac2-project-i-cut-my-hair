@@ -77,9 +77,6 @@ export default function update({ params }: { params: { resid: string } }) {
                         </p>
                     </div>
                 </div>
-                <div className="w-[50%]">
-                    <img src="/image_1.png" alt="" className="w-full p-4" />
-                </div>
 
             </div>
             <div className="flex flex-row">

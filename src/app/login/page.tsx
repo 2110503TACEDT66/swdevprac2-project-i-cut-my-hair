@@ -20,7 +20,7 @@ const Login: NextPage = () => {
       if (result?.error) {
         setError(result.error);
       } else {
-        window.location.href = '/myTable'; // Modify this URL as needed
+        window.location.href = '/'; // Modify this URL as needed
       }
     } catch (error) {
       // Handle error cases here1
