@@ -21,7 +21,7 @@ export default function Card({ restaurantItem }: { restaurantItem: RestaurantIte
     const currentTime = dayjs();
 
     // Compare current time with openTime and closeTime
-    const flag = "" ;
+    const flag = currentTime >= openTime && currentTime <= closeTime;
 
     return (
         <InteractiveCard>
@@ -42,9 +42,17 @@ export default function Card({ restaurantItem }: { restaurantItem: RestaurantIte
                             {restaurantItem.name}
                         </p>
                         <div className="flex-row flex justify-between items-center mb-4">
-                            <p className='text-xs text-green-700 font-bold'>
-                                OPENED
-                            </p>
+                            {
+                                flag ?
+                                    <p className='text-xs text-green-700 font-bold'>
+                                        OPENED
+                                    </p>
+                                    :
+                                    <p className='text-xs text-red-800 font-bold'>
+                                        CLOSED
+                                    </p>
+                            }
+
                             <p className='text-xs'>
                                 {restaurantItem.opentime} - {restaurantItem.closetime}
                             </p>
