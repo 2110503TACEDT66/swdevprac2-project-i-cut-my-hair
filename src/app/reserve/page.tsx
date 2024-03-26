@@ -56,7 +56,7 @@ export default function booking() {
     const makeBooking = async () => {
         console.log(rid)
         console.log(dayjs(bookDate).format("YYYY-MM-DD"))
-        if(!session || !session.user.token) return
+        if(!session || !session.user.token) return null
         console.log(dayjs(bookDate).format("YYYY-MM-DD") + "T" + dayjs(bookDate).format("HH:mm:ss")) //    "resvDate": "2024-12-24T22:50:00.000Z"
         if (rid && session) {
             const response = await postReservation(rid, dayjs(bookDate).format("YYYY-MM-DD") + "T" + dayjs(bookDate).format("HH:mm:ss"), session.user.token)
@@ -112,10 +112,19 @@ export default function booking() {
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1">Back</button>
                 </Link>
+
+                { session? 
+                <Link href="/myTable">
                 <button className="text-base w-[80%] mb-4 mr-4 inline-block border border-stone-800 p-2 text-center relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1" onClick={makeBooking}>Reserve Now!</button>
-
+                </Link>:
+                <Link href="/login">
+                <button className="text-base w-[80%] mb-4 mr-4 inline-block border border-stone-800 p-2 text-center relative overflow-hidden transition-transform duration-300 ease-in-out 
+                        hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
+                        hover:-translate-x-1 hover:-translate-y-1" onClick={makeBooking}>Reserve Now!</button>
+                </Link>
+                }
             </div>
         </main>
     );
