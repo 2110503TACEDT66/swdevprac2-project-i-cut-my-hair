@@ -1,5 +1,8 @@
 {
   "/page": "app/page.js",
   "/myTable/page": "app/myTable/page.js",
-  "/login/page": "app/login/page.js"
+  "/login/page": "app/login/page.js",
+  "/(restaurantInfo)/restaurant/page": "app/(restaurantInfo)/restaurant/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
 }

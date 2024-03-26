@@ -4,7 +4,7 @@ import getReservations from '@/libs/getReservations';
 import { Suspense } from 'react';
 import { LinearProgress } from '@mui/material';
 import dayjs from 'dayjs';
-
+import Nonsession from '@/components/Nonsession';
 
 export default async function Home() {
   interface RestaurantItem {
@@ -40,7 +40,9 @@ export default async function Home() {
 
   const session = await getServerSession(authOptions);
 
-  if (!session || !session.user.token) return null
+  if (!session || !session.user.token) return (
+    <Nonsession />
+  )
   const reserved = await getReservations(session.user.token);
   // const reservedItem = reserved.data;
 
