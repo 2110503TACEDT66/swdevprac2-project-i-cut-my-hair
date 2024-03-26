@@ -1,4 +1,4 @@
-// File: /Users/yuaylong/Documents/SWPractice/RestaurantReservation/frontend/src/app/myTable/page.tsx
+// File: /Users/yuaylong/Documents/swdevprac2-project-i-cut-my-hair/src/app/myTable/page.tsx
 import * as entry from '../../../../src/app/myTable/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

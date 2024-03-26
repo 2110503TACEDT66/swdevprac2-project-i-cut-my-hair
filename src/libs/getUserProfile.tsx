@@ -1,6 +1,6 @@
 export default async function getUserProfile(token:string) {
     console.log(token)
-    const response = await fetch("http://localhost:4000/api/v1/auth/me",
+    const response = await fetch("http://localhost:400/api/v1/auth/me",
     {
         method: "GET",
         headers:{
