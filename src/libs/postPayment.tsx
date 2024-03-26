@@ -1,5 +1,5 @@
 export default async function postPayment(token:string, amount:number, method:string, resid:string){
-    const response = await fetch(`http://localhost:400/api/v1/reservations/${resid}/payments`, {
+    const response = await fetch(`http://localhost:4000/api/v1/reservations/${resid}/payments`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
