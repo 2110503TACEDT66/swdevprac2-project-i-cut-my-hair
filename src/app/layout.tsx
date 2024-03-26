@@ -30,7 +30,7 @@ export default async function RootLayout({
     return (
       <html lang="en">
       <body className={inter.className}>
-        <TopBar userName={ "whoami" } />
+        <TopBar userName={ "whoami (needed login)" } />
 
         <div className="flex flex-row">
           <ReduxProvider>

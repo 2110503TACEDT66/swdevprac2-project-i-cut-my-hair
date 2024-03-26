@@ -1,4 +1,4 @@
-// File: /Users/yuaylong/Documents/swdevprac2-project-i-cut-my-hair/src/app/api/auth/[...nextauth]/route.tsx
+// File: C:\Users\Tony\Desktop\swdevprac2-project-i-cut-my-hair\src\app\api\auth\[...nextauth]\route.tsx
 import * as entry from '../../../../../../src/app/api/auth/[...nextauth]/route.js'
 import type { NextRequest } from 'next/server.js'
 

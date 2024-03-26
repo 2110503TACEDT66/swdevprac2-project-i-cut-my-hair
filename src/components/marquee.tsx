@@ -24,7 +24,7 @@ const Marquee = () => {
       animate="animate"
     >
       <p className=" text-stone-100">
-      Software Development Practice II: Project#5: Restaurant Reservation (I cut my hair)
+      Software Development Practice II: Project#5: Restaurant Reservation (I cut my hair)  Software Development Practice II: Project#5: Restaurant Reservation (I cut my hair)
       </p>
     </motion.div>
     </div>
