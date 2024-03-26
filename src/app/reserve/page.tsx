@@ -10,7 +10,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDisptach } from "@/redux/store";
-import { addReservation } from "@/redux/features/resSlice";
+import { addReservation } from "@/redux/features/resSlice"; 
 import { removeReservation } from "@/redux/features/resSlice";
 import { reserveItem } from "../../../interface";
 import postReservation from "@/libs/postReservation";
@@ -19,12 +19,13 @@ import { useSession } from "next-auth/react";
 import Card from "@/components/Card";
 import Image from "next/image";
 
+
 export default function booking() {
     const urlParams = useSearchParams()
     const rid = urlParams.get('id')
     const rName = urlParams.get('name')
     const { data: session } = useSession()
-    //console.log(session?.user.token)
+    //console.log(session?.user.token
 
     const dispatch = useDispatch<AppDisptach>()
     const now = dayjs().format('ddd D MMM YYYY');
