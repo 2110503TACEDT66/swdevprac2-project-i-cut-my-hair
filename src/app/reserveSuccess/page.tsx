@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default function ReserveSuccess({ amount, dateTime }: { amount: string, dateTime: string }) {
+export default function ReserveSuccess() {
   return (
     <div className="container mx-auto flex flex-col items-center justify-center mt-300">
       <img

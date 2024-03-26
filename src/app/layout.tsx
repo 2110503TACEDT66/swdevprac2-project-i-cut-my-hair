@@ -4,7 +4,7 @@ import "./globals.css";
 import TopBar from "@/components/TopBar";
 import { LeftSideBar, RightSideBar } from "@/components/SideBar";
 import nextAuth, { getServerSession } from 'next-auth'
-import { authOptions } from './api/auth/[...nextauth]/route'
+import { authOptions } from '../components/auth'
 import NextAuthProvider from '@/providers/NextAuthProvider'
 import ReduxProvider from '@/redux/ReduxProvider'
 import getRestaurants from "@/libs/getRestaurants";

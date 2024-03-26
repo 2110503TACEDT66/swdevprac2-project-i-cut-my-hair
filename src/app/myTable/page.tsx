@@ -1,6 +1,6 @@
 'use client'
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { authOptions } from '../../components/auth';
 import getReservations from '@/libs/getReservations';
 import { MouseEventHandler, Suspense } from 'react';
 import { LinearProgress } from '@mui/material';

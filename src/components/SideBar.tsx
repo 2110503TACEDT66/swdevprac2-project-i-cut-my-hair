@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '../components/auth';
 import { getServerSession } from 'next-auth';
 import getRestaurants from '@/libs/getRestaurants';
 import { RestaurantItem } from '../../interface';

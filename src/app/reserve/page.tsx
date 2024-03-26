@@ -3,7 +3,7 @@ import DateReserve from "@/components/DateReserve";
 import { Select, MenuItem } from '@mui/material'
 import getUserProfile from "@/libs/getUserProfile";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { authOptions } from "../../components/auth";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import dayjs, { Dayjs } from "dayjs";
