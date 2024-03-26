@@ -6,20 +6,30 @@ import InteractiveCard from './InteractiveCard';
 import * as React from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import dayjs from 'dayjs';
+import { RestaurantItem } from '../../interface'
 
-export default function Card({ restaurantName, imgSrc, address, tel, time, rid }:
-    { restaurantName: string, imgSrc: string, address: string, tel: string, time: string, rid:string }) {
-    if (imgSrc === null) {
-        imgSrc = '/image_1.png';
-    }
-    console.log("here "+imgSrc);
-        return (
+export default function Card({ restaurantItem }: { restaurantItem: RestaurantItem }) {
+    const [openHour, openMinute] = restaurantItem.opentime.split(':').map(Number);
+    const [closeHour, closeMinute] = restaurantItem.closetime.split(':').map(Number);
+
+    // Create openTime and closeTime using dayjs
+    const openTime = dayjs().set('hour', openHour).set('minute', openMinute);
+    const closeTime = dayjs().set('hour', closeHour).set('minute', closeMinute);
+
+    // Get current time using dayjs
+    const currentTime = dayjs();
+
+    // Compare current time with openTime and closeTime
+    const flag = "" ;
+
+    return (
         <InteractiveCard>
             <div className='flex flex-col'>
                 <div className="w-[298px] h-[496px]">
                     <div className="p-2">
                         {
-                            <Image src={imgSrc}
+                            <Image src={restaurantItem.imageUrl}
                                 alt='Hospital Picture'
                                 width={284} // Set the width of the image
                                 height={181} // Set the height of the image
@@ -29,37 +39,37 @@ export default function Card({ restaurantName, imgSrc, address, tel, time, rid }
                     </div>
                     <div className="p-2 flex flex-col">
                         <p className='text-2xl text-left mb-4'>
-                            {restaurantName}
+                            {restaurantItem.name}
                         </p>
                         <div className="flex-row flex justify-between items-center mb-4">
                             <p className='text-xs text-green-700 font-bold'>
                                 OPENED
                             </p>
                             <p className='text-xs'>
-                                {time}
+                                {restaurantItem.opentime} - {restaurantItem.closetime}
                             </p>
                         </div>
                         <p className='text-base text-left mb-4'>
                             Address
                         </p>
                         <p className='text-xs text-left pb-4'>
-                            {address}
+                            {restaurantItem.address}, {restaurantItem.district}, {restaurantItem.province}, {restaurantItem.postalcode}
                         </p>
                     </div>
                     <div className='flex flex-row m-2'>
-                        <Link href={`/restaurant/${rid}`}>
-                        <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
+                        <Link href={`/restaurant/${restaurantItem.id}`}>
+                            <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
-                        hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation;}}>
-                            Details
-                        </button>
+                        hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation; }}>
+                                Details
+                            </button>
                         </Link>
-                        <Link href={`/reserve?id=${rid}&name=${restaurantName}`}>
-                        <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
+                        <Link href={`/reserve?id=${restaurantItem.id}&name=${restaurantItem.name}`}>
+                            <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
-                        hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation;}}>
-                            Reserve 
-                        </button>
+                        hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation; }}>
+                                Reserve
+                            </button>
                         </Link>
                     </div>
                 </div>
