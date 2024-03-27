@@ -1,5 +1,5 @@
 export default async function getReservations(token: string) {
-    const response = await fetch("http://localhost:4000/api/v1/reservations", {
+    const response = await fetch("${process.env.BACKEND_URL}/api/v1/reservations", {
 
         method: "GET",
         headers: {
