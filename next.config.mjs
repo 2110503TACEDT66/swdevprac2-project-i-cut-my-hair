@@ -4,8 +4,8 @@ const nextConfig = {
       domains: ['images.unsplash.com'],
     },
     env: {
-        FRONTEND_URL = process.env.FRONTEND_URL,
-        BACKEND_URL = process.env.BACKEND_URL
+        FRONTEND_URL : process.env.FRONTEND_URL,
+        BACKEND_URL : process.env.BACKEND_URL
     }
     // other configurations...
   };
