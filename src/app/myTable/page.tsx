@@ -82,9 +82,12 @@ export default async function Home() {
                 </div>
 
                 <div className='flex flex-row mt-2 justify-between'>
+                <Link href={`/`}>
+
                   <button id={item._id} className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-red-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1' onClick={handleDelete}>Delete</button>
+                        </Link>
                         <Link href={`/reservation/${item._id}`}>
                   <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
