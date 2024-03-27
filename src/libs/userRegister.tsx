@@ -12,7 +12,9 @@ export default async function userRegister(userName: string, userTel:string , us
             password: userPassword,
             role: userRole,
         }),
+        
     })
+    console.log(response);
 
     if(!response.ok){
         throw new Error("Failed to fetch user")
