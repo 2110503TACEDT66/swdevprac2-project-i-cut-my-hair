@@ -10,7 +10,7 @@ export default function TopBar({ userName }: NavBarProps) {
     console.log(userName);
 
     return (
-        <nav className="max-w-1440 text-base flex flex-row z-30 wh-8 mt-9 ml-9 mr-9 mb-9">
+        <nav data-testid="top-bar" className="max-w-1440 text-base flex flex-row z-30 wh-8 mt-9 ml-9 mr-9 mb-9">
             <div className="w-[85%] mr-4 flex items-center bg-stone-800">
                 <Marquee />
             </div>

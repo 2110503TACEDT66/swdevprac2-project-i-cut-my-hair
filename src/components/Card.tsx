@@ -25,7 +25,7 @@ export default function Card({ restaurantItem }: { restaurantItem: RestaurantIte
 
     return (
         <InteractiveCard>
-            <div className='flex flex-col'>
+            <div data-testid="card" className='flex flex-col'>
                 <div className="w-[298px] h-[496px]">
                     <div className="p-2">
                         {
@@ -65,14 +65,14 @@ export default function Card({ restaurantItem }: { restaurantItem: RestaurantIte
                         </p>
                     </div>
                     <div className='flex flex-row m-2'>
-                        <Link href={`/restaurant/${restaurantItem.id}`}>
+                        <Link data-testid="details" href={`/restaurant/${restaurantItem.id}`}>
                             <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation; }}>
                                 Details
                             </button>
                         </Link>
-                        <Link href={`/reserve?id=${restaurantItem.id}&name=${restaurantItem.name}`}>
+                        <Link data-testid="reserve" href={`/reserve?id=${restaurantItem.id}&name=${restaurantItem.name}`}>
                             <button className='w-[141px] h-[37px] border border-stone-800 relative overflow-hidden transition-transform duration-300 ease-in-out 
                         hover:shadow-lg hover:shadow-stone-500/100 bg-stone-100 hover:bg-stone-800 text-stone-800 hover:text-stone-100 transform 
                         hover:-translate-x-1 hover:-translate-y-1' onClick={(e) => { e.stopPropagation; }}>
